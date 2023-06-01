@@ -24,7 +24,7 @@ const Banner = () => {
         <div className="banner">
             <div className='heading'>
                 <h1 className="heading-text">Welcome to SpaceX</h1>
-                <p className="lead">Explore Rockets and Capsules</p>
+                <p className="lead" style={{fontSize: "2.5rem"}}>Explore Rockets</p>
             </div>
             <div className="carousel-container">
                 <RocketCarousel rockets={rockets} />

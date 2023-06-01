@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Pagination from './Pagination';
 import axios from 'axios';
 import "./styles/Datagrid.css"
 
 const DataGrid = () => {
   const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
 
   // Fetch data from the API and update the state
   useEffect(() => {
@@ -24,14 +21,7 @@ const DataGrid = () => {
 
 
   // Calculate the indexes of the items to display based on the current page
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-
-  // Function to handle page navigation
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+  const currentItems = data;
 
   return (
     <>
@@ -49,13 +39,6 @@ const DataGrid = () => {
           </div>
         ))}
       </main>
-
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={data.length}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
     </>
   );
 }
